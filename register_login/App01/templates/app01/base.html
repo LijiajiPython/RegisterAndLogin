@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            base
+        {% endblock %}
+    </title>
+    {% block style %}
+    {% endblock %}
+    <link rel="stylesheet" href="/static/app01/css/base.css">
+    <script src="/static/app01/js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<div class="nav">
+    {% if request.session.is_login %}
+        <a href="/App01/logout/"><span class="nav-button">退出</span></a>
+        <span class="nav-button">已登录</span>
+    {% else %}
+        <a href="/App01/login/"><span class="nav-button">登陆</span></a>
+        <a href="/App01/register/"><span class="nav-button">注册</span></a>
+    {% endif %}
+</div>
+<div class="center">
+{% block center %}
+
+{% endblock %}
+</div>
+</body>
+</html>

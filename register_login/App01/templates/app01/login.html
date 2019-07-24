@@ -1,0 +1,32 @@
+{% extends "app01/base.html" %}
+
+{% block title %}
+    登陆
+{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="/static/app01/css/register.css">
+{% endblock %}
+{% block center %}
+    <form method="POST" action="/App01/login/">
+    {% csrf_token %}
+    <table class="forms">
+        <tr>
+            <td class="forms_title" colspan="2">登陆</td>
+        </tr>
+        <tr>
+            <td class="label">用户名</td>
+            <td><input type="text" class="registername" name="username"></td>
+        </tr>
+        <tr>
+            <td class="label">密码</td>
+            <td><input type="password" class="registerpasswd" name="password"></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="color:red">{{ result.content }}</td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="提交" class="submit_button"></td>
+        </tr>
+
+</table></form>
+{% endblock %}

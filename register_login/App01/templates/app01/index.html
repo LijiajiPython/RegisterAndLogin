@@ -1,0 +1,12 @@
+{% extends "app01/base.html" %}
+
+{% block title %}
+    首页
+{% endblock %}
+
+{% block center %}
+    <div>
+        <p style="text-align: center;font-size:40px;line-height:500px;">这是首页{{ request.session.username }}</p>
+    </div>
+
+{% endblock %}

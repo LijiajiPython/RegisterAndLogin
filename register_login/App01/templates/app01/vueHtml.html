@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/app01/js/vue.min.js"></script>
+    <style>
+        .red{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+{% verbatim %}
+    <div id="app">{{ message }}
+        <div>
+            <p>+++++++++++++++++++++++++++++++++++++</p>
+            <p>{{ message }}</p>
+            <p>=====================================</p>
+            <p>+++++++++++++++++++++++++++++++++++++</p>
+            <p><input type="text" v-model="message"></p>
+            <p>=====================================</p>
+            <p>+++++++++++++++++++++++++++++++++++++</p>
+            <p v-bind:class="color">{{ message }}</p>
+            <p>=====================================</p>
+            <p>+++++++++++++++++++++++++++++++++++++</p>
+            <p v-if="vilid">{{ message }}</p>
+            <p>=====================================</p>
+            <p>+++++++++++++++++++++++++++++++++++++</p>
+            <p v-show="xiu">{{ message }}</p>
+            <p>=====================================</p>
+        </div>
+    </div>
+{% endverbatim %}
+<script>
+    var Vue=new Vue(
+        {
+            el:"#app",
+            data:{
+                message:"hello world",
+                color:"red end",
+                vilid:1,
+                xiu:0,
+            }
+        }
+    )
+</script>
+</body>
+</html>

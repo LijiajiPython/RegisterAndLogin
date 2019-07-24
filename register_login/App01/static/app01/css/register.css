@@ -1,0 +1,28 @@
+.forms{
+    width:500px;
+    height:400px;
+    margin:0 auto;
+    border:1px black solid;
+}
+.forms_title{
+    background-color: deepskyblue;
+    color:white;
+    height:60px;
+    font-size: 40px;
+    line-height: 60px;
+    text-align: center;
+}
+.label{
+    font-size: 30px;
+}
+.registername,.registerpasswd{
+    font-size: 30px;
+}
+.submit_button{
+    width:500px;
+    height:60px;
+    background-color: dodgerblue;
+    font-size: 30px;
+    color:white;
+    border-radius: 20px;
+}

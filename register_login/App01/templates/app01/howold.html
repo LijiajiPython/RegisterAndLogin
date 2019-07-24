@@ -1,0 +1,14 @@
+{% extends "app01/base.html" %}
+{% load howold %}
+
+{% block title %}
+年龄
+{% endblock %}
+
+{% block center %}
+{% for p in people %}
+    <p>{{ p.name }}|||:|||{{ p.birthday | setTime }}</p>
+{#    <p>{% addNum {p.name} %}</p>#}
+{% endfor %}
+    <p>{% addNum a %}</p>
+{% endblock %}

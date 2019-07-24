@@ -1,0 +1,61 @@
+{% extends "app01/base.html" %}
+
+{% block title %}
+    注册
+{% endblock %}
+{% block style %}
+    <link rel="stylesheet" href="/static/app01/css/register.css">
+{% endblock %}
+{% block center %}
+    <form method="POST" action="/App01/register/">
+    {% csrf_token %}
+        <table class="forms">
+            <tr>
+                <td class="forms_title" colspan="2">注册</td>
+            </tr>
+            <tr>
+                <td class="label">用户名</td>
+                <td><input type="text" class="registername" name="username" id="id_username"></td>
+            </tr>
+            <tr>
+                <td class="label">密码</td>
+                <td><input type="password" class="registerpasswd" name="password" id="id_password"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="color:red">{{ result.content }}</td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="提交" class="submit_button" id="submitbutton"></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+   $("#id_password").click(
+            function () {
+                var username=$("#id_username").val();
+                var password=$("#id_password").val();
+                var url = "/App01/register_data/?username="+username;
+                $.ajax(
+                    {
+                        url: url,
+                        type: "get",
+                        data: "",
+                        success: function(data){
+                            var content=data.content;
+                            var status = data.status;
+                            if(status=="error"){
+                                $("#submitbutton").attr("disabled",true)
+                            }else{
+                                $("#submitbutton").attr("disabled",false)
+                            }
+                            alert(content)
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    }
+                )
+            }
+        )
+    </script>
+{% endblock %}

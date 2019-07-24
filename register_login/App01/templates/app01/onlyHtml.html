@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/static/app01/js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<div id="content"></div>
+<script>
+    $(
+        function(){
+            url = "/App01/LoginUser/?type=select";
+            $.ajax(
+                {
+                    url:url,
+                    type:"get",
+                    data:"",
+                    success:function (data) {
+                        db_data=data["data"];
+                        db_static=data["static"];
+
+                        for(var i in db_data){
+                            console.log("+++++++++++++++");
+                            console.log(db_static);
+                            var html_str="<p>"+db_data[i]["username"]+"&nbsp;&nbsp;"+db_data[i]["password"]+"&nbsp;&nbsp;";
+                            console.log(html_str);
+                            $("#content").append(html_str);
+                            console.log("--------------------------")
+                        }
+                    },
+                    error:function (error) {
+                        console.log(error)
+                    }
+                }
+            )
+        }
+    )
+</script>
+</body>
+</html>
